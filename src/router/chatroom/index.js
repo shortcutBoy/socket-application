@@ -256,7 +256,7 @@ export class Chatroom extends React.Component {
           </li>
           <li className="login page">
             <div className="form">
-              <h3 className="title">你的名字:</h3>
+              <h3 className="title">输入名字:</h3>
               <input className="usernameInput" type="text" maxLength="14" />
             </div>
           </li>
