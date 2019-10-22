@@ -92,18 +92,18 @@ export class Chatroom extends React.Component {
     });
   
     socket.on('disconnect', () => {
-      this.log('you have been disconnected');
+      this.log('你已断开连接');
     });
   
     socket.on('reconnect', () => {
-      this.log('you have been reconnected');
+      this.log('已经重新连接');
       if (this.username) {
         socket.emit('add user', this.username);
       }
     });
   
     socket.on('reconnect_error', () => {
-      this.log('attempt to reconnect has failed');
+      this.log('重连失败');
     });
   }
 
