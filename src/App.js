@@ -1,21 +1,31 @@
 import React from 'react';
-import logo from './logo.svg';
-import io from 'socket.io-client';
+import { Home } from './router/home';
+import { Editor } from './router/editor';
+import { Chatroom } from './router/chatroom';
+import { Whiteboard } from './router/whiteboard';
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import './App.css';
 
 export class App extends React.Component {
-  handleClick = () => {
-    io.connect('http://localhost:4000');
-  }
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p className="header-click" onClick={this.handleClick}>
-            Click here to connect the socket server.
-          </p>
-        </header>
+        <Router>
+          <Switch>
+            <Route exact path="/home">
+              <Home />
+            </Route>
+            <Route exact path="/chatroom">
+              <Chatroom />
+            </Route>
+            <Route path="/whiteboard">
+              <Whiteboard />
+            </Route>
+            <Route path="/editor">
+              <Editor />
+            </Route>
+          </Switch>
+        </Router>
       </div>
     );
   }
