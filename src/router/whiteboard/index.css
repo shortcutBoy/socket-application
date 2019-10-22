@@ -1,21 +1,29 @@
-.whiteboard {
-  text-align: center;
+/**
+ * Canvas
+ */
+
+ .whiteboard {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
 }
 
-.whiteboard-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-.header-click {
-  cursor: pointer;
+.colors {
+  position: fixed;
 }
 
-.whiteboard-link {
-  color: #09d3ac;
+.color {
+  display: inline-block;
+  height: 48px;
+  width: 48px;
 }
+
+.color.black { background-color: black; }
+.color.red { background-color: red; }
+.color.green { background-color: green; }
+.color.blue { background-color: blue; }
+.color.yellow { background-color: yellow; }
