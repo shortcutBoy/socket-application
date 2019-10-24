@@ -1,5 +1,5 @@
 import React from 'react';
-import { Home } from './router/home';
+import { Slides } from './router/slides';
 import { Editor } from './router/editor';
 import { Chatroom } from './router/chatroom';
 import { Whiteboard } from './router/whiteboard';
@@ -12,8 +12,8 @@ export class App extends React.Component {
       <div className="App">
         <Router>
           <Switch>
-            <Route exact path="/home">
-              <Home />
+            <Route exact path="/">
+              <Slides />
             </Route>
             <Route exact path="/chatroom">
               <Chatroom />

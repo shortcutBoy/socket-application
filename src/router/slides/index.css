@@ -1,0 +1,42 @@
+.slides {
+  text-align: center;
+}
+
+.slides-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+.header-click {
+  cursor: pointer;
+}
+
+.slides-link {
+  color: #09d3ac;
+}
+
+.slides-btn {
+  /* display: none; */
+}
+
+.btn-left,
+.btn-right {
+  width: 100px;
+  position: fixed;
+  background-color: #fff;
+  opacity: 0.08;
+  height: 100%;
+  top: 0;
+  cursor: pointer;
+}
+.btn-left {
+  left: 0;
+}
+.btn-right {
+  right: 0;
+}

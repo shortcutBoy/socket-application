@@ -15,6 +15,9 @@ export class Editor extends React.Component {
         data: msg.data,
       });
     });
+    socket.on('change_slide', (msg) => {
+      this.setState({current: msg.num});
+    });
   }
   onChange = ( event, editor ) => {
     const data = editor.getData();
