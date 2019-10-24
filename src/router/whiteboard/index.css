@@ -20,6 +20,23 @@
   display: inline-block;
   height: 48px;
   width: 48px;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.btn-clear {
+  overflow: hidden;
+  background-color: #e7e7e7;
+  color: black;
+  border: none;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+  margin-left: 15px;
+  border-radius: 3px;
 }
 
 .color.black { background-color: black; }
@@ -27,3 +44,4 @@
 .color.green { background-color: green; }
 .color.blue { background-color: blue; }
 .color.yellow { background-color: yellow; }
+

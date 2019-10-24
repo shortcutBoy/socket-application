@@ -1,5 +1,6 @@
 import React from 'react';
 import { socket } from '../../index';
+import { BtnBack } from '../../components/btn-back';
 import './index.css';
 
 const COLORS = ['black', 'red', 'green', 'blue', 'yellow'];
@@ -109,7 +110,9 @@ export class Whiteboard extends React.Component {
               <div key={index} className={`color ${name}`} onClick={this.onColorUpdate}></div>
             ))
           }
+          <div onClick={this.onResize} className="btn-clear">Clear</div>
         </div>
+        <BtnBack />
       </div>
     );
   }

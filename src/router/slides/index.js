@@ -202,7 +202,7 @@ export class Slides extends React.Component {
     </section>,
     <section className="bg-apple aligncenter">
       <div className="wrap">
-        <h4>详细参考:<a style={{paddingLeft: 10}} href="https://developer.mozilla.org/zh-CN/docs/Web/API/WebSockets_API/Writing_WebSocket_servers" title="MDN WebSocket">MDN</a></h4>
+        <h4>详细参考:<a style={{paddingLeft: 10}} href="https://developer.mozilla.org/zh-CN/docs/Web/API/WebSockets_API/Writing_WebSocket_servers" target="_blank" title="MDN WebSocket">MDN</a></h4>
       </div>
     </section>,
     <section className="bg-apple">
@@ -256,32 +256,33 @@ export class Slides extends React.Component {
   ];
   constructor(props) {
     super(props);
-    this.state = {current: 0};
+    const cur_num = this.get_storage();
+    this.state = {current: cur_num ? cur_num : 0};
   } 
   componentDidMount() {
-    localStorage.getItem('current') &&
-    this.setState({current: localStorage.getItem('current')});
     socket.on('change_slide', (msg) => {
       this.set_storage(msg.num);
       this.setState({current: msg.num});
     });
   }
   handle_previous_slide = () => {
-    const { current } = this.state;
-    const num = current - 1 <= 0 ? 0 : current - 1;
+    const num = this.get_storage() - 1 <= 0 ? 0 : this.get_storage() - 1;
     socket.emit('previous', {num});
     this.set_storage(num);
     this.setState({current: num});
   }
   handle_next_slide = () => {
-    const { current } = this.state;
-    const num = current + 1 >= this.slides.length - 1 ? this.slides.length - 1 : current + 1;
+    const num = this.get_storage() + 1 >= this.slides.length - 1 ? this.slides.length - 1 : this.get_storage() + 1;
     socket.emit('next', {num});
     this.set_storage(num);
     this.setState({current: num});
   }
   set_storage = (num) => {
     localStorage.setItem('current', num);
+  }
+  get_storage = () => {
+    let current = localStorage.getItem('current');
+    return current ? parseInt(current) : 0;
   }
   render() {
     return (

@@ -1,6 +1,7 @@
 import $ from  'jquery';
 import React from 'react';
 import { socket } from '../../index';
+import { BtnBack } from '../../components/btn-back';
 import './index.css';
 
 const FADE_TIME = 150;
@@ -261,6 +262,7 @@ export class Chatroom extends React.Component {
             </div>
           </li>
         </ul>
+        <BtnBack />
       </div>
     );
   }

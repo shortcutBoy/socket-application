@@ -2,6 +2,7 @@ import React from 'react';
 import { socket } from '../../index';
 import CKEditor from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+import { BtnBack } from '../../components/btn-back';
 import './index.css';
 
 export class Editor extends React.Component {
@@ -39,6 +40,7 @@ export class Editor extends React.Component {
           data={this.state.data}
           editor={ClassicEditor}
           onChange={this.throttle(this.onChange, 500)}/>
+        <BtnBack />
       </div>
     );
   }
