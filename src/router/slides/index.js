@@ -29,16 +29,29 @@ export class Slides extends React.Component {
     this.state = {current: 0};
   }
   componentDidMount() {
-    socket.emit('current');
+    localStorage.getItem('current') &&
+    this.setState({current: localStorage.getItem('current')});
     socket.on('change_slide', (msg) => {
+      this.set_storage(msg.num);
       this.setState({current: msg.num});
     });
   }
   handle_previous_slide = () => {
-    socket.emit('previous');
+    const { current } = this.state;
+    const num = current - 1 <= 0 ? 0 : current - 1;
+    socket.emit('previous', {num});
+    this.set_storage(num);
+    this.setState({current: num});
   }
   handle_next_slide = () => {
-    socket.emit('next');
+    const { current } = this.state;
+    const num = current + 1 >= this.slides.length - 1 ? this.slides.length - 1 : current + 1;
+    socket.emit('next', {num});
+    this.set_storage(num);
+    this.setState({current: num});
+  }
+  set_storage = (num) => {
+    localStorage.setItem('current', num);
   }
   render() {
     return (
